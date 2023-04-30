@@ -1,0 +1,1072 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--rosa);
+  color: var(--escuro);
+}
+::selection {
+  background-color: var(--rosa);
+  color: var(--escuro);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* (Probándolo, no usar en producción) En el caso de añadir una  */
+/* p svg{
+  display: inline;
+  width: initial;
+} */
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: 'Racing Sans One', cursive;
+  font-family: 'Montserrat', sans-serif;
+  /* opcional */
+  
+  /* opcional */
+  -webkit-font-smoothing: antialiased;
+  /* opcional */
+  -moz-osx-font-smoothing: grayscale;
+
+  color: var(--escuro);
+  background-color: var(--claro);
+}
+
+/*Configurar Scrollbar*/
+/* ancho */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+/* fondo */
+::-webkit-scrollbar-track {
+  background: var(--claro); 
+  border-radius: 2rem;
+}
+/* barra */
+::-webkit-scrollbar-thumb {
+  background: var(--rojo); 
+  border-radius: 2rem;
+}
+/* hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rosa);
+}
+
+
+
+
+
+
+
+/*Custom Properties - facil acceso a los colores*/
+:root{
+    --rosa: #f9d9fc;
+    --rojo: #fe2d43;
+    --claro: #f5f5f5;
+    --escuro:#3d3e3d;
+    --blanco: #ffffff;
+
+}
+
+
+
+
+
+/*HEADER*/
+.Header{
+    background-color: var(--rosa);
+    width: 100%;
+
+    padding: 1rem 0;
+    
+    color: var(--rojo);
+
+  
+}
+.Header-wrapper{
+    width: 95%;
+
+    margin: auto; /*para que el bloque este centrado*/
+
+    padding: 1rem;
+}
+
+
+/*NAV*/
+.Header-ul{
+  width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 2rem;
+}/*Establece el ancho al 100 % y usa las propiedades de Flexbox para alinear horizontalmente los elementos de la lista a la derecha y centrarlos verticalmente. Distancia de 2rem entre <li>*/
+
+.Header-a{
+  border: solid var(--rojo) .125rem;
+
+  border-radius: 2rem;
+  min-width: 6rem; /*para que todos los botones tengan el mismo ancho*/
+  text-align: center;
+
+  padding: .5rem 1rem;
+  font-family: 'Racing Sans One', cursive;
+  font-size: 1rem;
+  }
+
+.Header-a:hover{
+    background-color: var(--rojo);
+    color: var(--rosa);
+    transition: all .5s ease;
+}/*Al hacer hover en el botón cambia el color de fondo y del texto con una transición. A continuación, al hacer clic (active) tiene una escala.*/
+
+.Header-a:active{
+  transform: scale(0.8);
+  transition: all .5s ease;
+}
+.Header-svg{
+  display: none;
+}/*oculta el SVG menu hamburguesa de la página web, hasta que tenga las dimensiones de móvil donde en responsive volverá a display block.*/
+
+
+
+/*.......MAIN........*/
+
+/*HERO*/
+.Hero{
+  background-color: white;
+  width: 100%;
+}
+.Hero-fondo{ /*sirve para que este apartado sea rosa y el fondo de abajo blanco, ya que la sección Work a continuación usa fondo blanco*/
+  background-color: var(--rosa);
+  width: 100%;
+  
+  border-radius: 0 0 2rem 2rem;
+  padding: 2rem 0 6rem 0;
+}
+.Hero-wrapper{
+    color: var(--rojo);
+    width:80%;
+
+    margin:auto;
+    min-height: 25rem;
+
+}
+.Hero-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    padding: 3rem 0;
+
+    animation: slidedown 1.5s ease 1; /*animación para que el texto del hero de desplaze hacia abajo. Dura 1.5 segundos, la aceleración es ease y ocurre una vez. Keyframe al final, antes del responsive*/
+}
+.Hero-h1{
+    font-size: 6rem;
+    font-family: 'Racing Sans One', cursive;
+    line-height: 1;
+    max-width: 43.8rem;
+}
+.Hero-span{
+    color: white; 
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: 'Racing Sans One', cursive;
+
+    padding-bottom: 0.3rem;
+
+}
+.Hero-p{
+    padding: 3rem 0 0 0;
+    letter-spacing: 0.225rem;
+    font-size: 1rem;
+
+    animation: slideup 1.5s ease 1; /*animación para que el texto del hero de desplaze hacia abajo. Dura 1.5 segundos, la aceleración es ease y ocurre una vez*/
+}
+
+
+/*........WORK/PROYECTOS.......*/
+
+#Work{
+  width: 100%;
+  background-color: var(--blanco);
+}
+
+.Work-wrapper{
+  width: 80%;
+  margin: auto;
+  padding: 3rem 0;
+}
+
+.Work-h2{
+  font-weight: 700;
+  font-size: 3.75rem;
+  font-family: 'Racing Sans One', cursive;
+
+
+  padding: 6rem 0 1rem 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Work-h2::before{
+  content:"";
+  width: 12rem;
+  height: .125rem;
+  background-color: var(--escuro);
+  display: block;
+}
+
+
+.Work-contenedor{
+  width: 100%;
+
+  display: flex;
+  flex-flow: row nowrap;
+
+  position: relative;
+}/*flexbox para alinear el menu y las fotos en row sin que bajen por el nowrap. Es relative por ser la contenedora del work-ul que es sticky mientras se hace scroll.*/
+
+
+.Work-ul{
+  padding: 1rem 0;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  position: sticky;
+  top:0;
+  left:0;
+
+  margin: 0 2rem 0 0;
+}/*posición sticky para que el elemento se adhiera a la parte superior izquierda de la ventana gráfica al desplazarse.*/
+
+.Work-a{
+  width: 11rem;
+  border: solid var(--rojo) .1062rem;
+  color: var(--rojo);
+  border-radius: 2rem;
+
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.Work-a:hover{
+background-color: var(--rosa);
+transition: all .5s ease;
+
+}
+
+.Work-a:active{
+  transform: scale(0.8);
+  transition: all .5s ease;
+}
+
+
+/*--........WORK FOTOS........--*/
+
+.Work-fotos{
+  /*background-color: aqua;*/
+  position: relative;
+}/*Contenedora del absolute de la click-img*/
+
+.Work-click{
+  width: 100%;
+}
+.Click-img{
+  object-fit: contain ;
+  width: 6.25rem;
+  animation: clickrotate 5s linear infinite 4s;
+
+  position: absolute; /*para que se sobreponga a fotos-li*/
+  top: 0;
+  right: 0;
+
+  z-index: 1;
+}
+
+.Fotos-ul{
+  overflow: hidden; 
+}
+
+.Fotos-li{
+  position: relative;
+  margin: 2rem 0;
+}/*Contenedora del absolute del .Work-img.opacity*/
+
+.Work-img{
+  width: 75rem;
+
+  object-fit: contain;
+  border-radius: 1rem;
+}
+
+.Work-img.opacity{
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 0;
+}
+
+.Work-img:hover.opacity{ /*Al hacer hover en la work-img, la segunda imagen (que tiene la clase opacity y esta en absolute) aparece. O sea, deja de tener opacity: 0 para tener opacity: 1.*/
+  opacity: 1;
+  transition: all .5s ease;
+}
+
+
+
+
+
+
+
+
+/*-----ABOUT-----*/
+
+
+#About{
+  width: 100%;
+  background-color: var(--claro);
+
+  padding: 6rem 0;
+}
+
+.About-h2{
+  font-weight: 700;
+  font-size: 3.75rem;
+  font-family: 'Racing Sans One', cursive;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+.About-h2::after{
+  content:"";
+  width: 12rem;
+  height: .125rem;
+  background-color: var(--escuro);
+}
+
+.About-wrapper{
+  max-width: 70%;
+  margin: auto;
+}
+
+.About-nombre{
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: 'Racing Sans One', cursive;
+
+  color: var(--rojo);
+  padding: 2rem;
+}
+
+.About-presentacion{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  padding: 2rem 0;
+}
+.About-foto{
+  padding: 0 3rem 0 0;
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.About-img{
+  width: 9.375rem;
+}
+.About-ul{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.About-li{
+  font-size: .75rem;
+  background-color: var(--rosa);
+  color: var(--rojo);
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+.About-texto{
+  max-width: 35rem; /*Para que el contenido no se extenda cuando la pantalla se hace más ancha*/
+
+  background-color: var(--rosa);
+  border-radius: 2rem;
+  font-size: .8125rem;
+  padding: 2rem 3rem;
+}
+
+
+
+/*......Section de los buttons de la experiencia de trabajo y skills......*/
+
+.About-lists{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  max-width: 64rem;
+}
+
+.About-tabs.left{
+  padding: 6rem 0;
+  width: 60%;
+}
+
+
+.Experience-h3{
+  color: var(--rojo);
+
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Racing Sans One', cursive;
+}
+
+
+.Experience-work{
+ 
+  margin: 0 0 0 1rem;
+  width: 90%;
+  max-width: 37.5rem;
+}
+
+
+
+.Experience-title{ 
+/*Esta clase sirve para tanto para la seccion experience, skills y studies. És después usada en Javascript*/
+  color: var(--rojo);
+  padding: 1rem 2rem;
+  border: solid .125rem var(--rojo);
+  border-radius: 1rem;
+
+  margin: 2rem 0 0 0;
+
+  font-weight: 600;
+  font-size: .875rem;
+  color: var(--rojo);
+
+  cursor: pointer;
+}
+
+.Experience-title:hover{
+  background-color: var(--rojo);
+  color: var(--rosa);
+
+  transition: all .5s ease;
+}
+
+.Experience-title:active{
+  color:var(--rojo)
+}
+
+
+.Experience-ul{
+  height: 0; /*Para que el texto solo aparezca cuando se hace clic en .Experience-title, se quita la altura y todo lo que sale fora de la etiqueta*/
+  overflow: hidden;
+  
+  transition: all 0.5s ease;
+}
+
+.Experience-ul.isActive{ /*Esta section tiene la clase isActive, para usarla en Javascript*/
+  padding: 1rem 0;
+  min-height: 13rem;
+  line-height: 1.5rem;
+}
+.Experience-li{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: .875rem;
+
+  gap: 1rem;
+
+  padding: .5rem 1rem .5rem 0;  
+}
+.title{ /*para destacar los nombres de las escuelas*/
+  font-weight: 600;
+}
+
+
+.Studies-h3{
+  color: var(--rojo);
+  
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Racing Sans One', cursive;
+  margin: 4rem 0 2rem 0;
+}
+
+.Experience-studies{
+  margin: 0 0 0 1rem;
+  width: 80%;
+  max-width: 37.5rem;
+  
+}
+
+.Skills-h3{
+  color: var(--rojo);
+
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Racing Sans One', cursive;
+  margin: 4rem 0 2rem 0;
+}
+
+.Experience-skills{ 
+    margin: 0 0 0 1rem;
+    max-width: 37.5rem;
+  }
+
+
+/*...Div derecho con idiomas y CVs....*/
+
+.About-tabs.right{  
+  padding: 6rem 0rem;
+}
+.Language-h3{
+  color: var(--rojo);
+
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Racing Sans One', cursive;}
+
+.Language-ul{
+  padding: 1rem 0 0 0;
+}
+.Language-li{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: .875rem;
+
+  gap: 1rem;
+
+  padding: 1rem 0;
+}
+
+
+.Curriculo-btn{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem 0 0 0;
+
+  gap: 1rem;
+}
+
+.Curriculo-h3{
+  color: var(--rojo);
+
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Racing Sans One', cursive;
+  margin: 2rem 0;
+}
+
+.Curriculo-a{
+  width: 8.2rem;
+  background-color: var(--rosa);
+  color: var(--rojo);
+  text-align: center;
+  font-size: .875rem;
+
+  border-radius: 2rem;
+  padding: .5rem .5rem;
+}
+
+
+/*CONTACT FORMULARIO*/
+
+#Contact{
+  width: 100%;
+  background-color: var(--rosa);
+  border-radius: 2rem;
+}
+
+.Contact-wrapper{
+  margin: auto;
+  padding: 4rem 0 8rem 0;
+  max-width: 70%; /*para no desformatar en grandes pantallas*/
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/*Div con H2 y formulario*/
+
+.Contact-container{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 3rem 0 0 0;
+  max-width: 68rem;
+}
+
+.Contact-h2{
+  color: var(--rojo);
+
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Racing Sans One', cursive;
+
+  margin: 0 0 3rem 0; 
+}
+.Contact-form{
+  position: relative;
+}
+
+.Form-email{
+  border-bottom: solid .125rem var(--escuro);
+  padding: .5rem 1rem;
+  font-weight: 600;
+  
+  margin: 0 0 1rem 0; 
+}
+
+.Form-text{
+  border-bottom: solid .125rem var(--escuro);
+  padding: .5rem 1rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+::placeholder{
+  color: var(--escuro);/*texto de exemplo dentro del form*/
+}
+.Contact-svg{
+  width: 1.5rem;
+  height: 1.5rem;
+
+  color: var(--rojo);
+
+  position: absolute;
+  bottom: 1.3rem;
+  right: -3rem;
+}
+.Contact-svg:hover{
+  transform: scale(1.5);
+  color: var(--blanco);
+}
+.Contact-a{
+  color: var(--rojo);
+  font-size: 1rem;
+  padding: 0 0 1rem 10rem;
+}
+
+
+
+
+/*.......FOOTER....*/
+
+.Footer{
+  width: 100%;
+}
+.Footer-container{
+  width: 100%;
+  margin: auto;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding: 2rem 0;
+}
+.Footer-social{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.Social-ul{
+  padding: 2rem 0;
+}
+.Social-li{
+  color: var(--escuro);
+  font-family: 'Racing Sans One', cursive;
+  font-size: 2rem;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: .5rem;
+
+  padding: 2rem 0;
+}
+.Social-li::before{
+  content: "";
+  width: 14.5rem;
+  height: .125rem;
+  background-color: var(--escuro);
+}
+.Social-li:hover{
+  color: var(--rojo);
+  transition: all .5s ease;
+}
+.Footer-p{
+  padding: 4rem;
+  color: var(--rosa);
+  font-family: 'Racing Sans One', cursive;
+  font-size: 2rem;
+
+}
+.Footer-a{
+  color: var(--rosa);
+  font-family: 'Racing Sans One', cursive;
+  font-size: 1.5rem;
+  text-align: center;
+
+  background-color: var(--rojo);
+  padding: .3rem 1rem;
+  border-radius: 2rem;
+
+  margin-right: 2rem;
+}
+.Footer-a:hover{
+    background-color: var(--rosa);
+    color: var(--rojo);
+    transition: all .5s ease;
+}
+.Footer-a:active{
+  transform: scale(0.8);
+  transition: all .5s ease;
+}
+
+
+
+
+
+/*-------KEYFRAMES-------*/
+
+/*Animaciones iniciales en el hero*/
+@keyframes slidedown{
+  from{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideup{
+  from{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+
+@keyframes clickrotate{
+
+  50% {transform: rotate(-45deg); /* clickrotate es una animación para girar un elemento -45 grados cuando alcanza el 50% de su duración de la animación.*/
+  }
+}
+
+
+
+
+
+
+/*------RESPOSIVE-----*/
+
+
+@media screen and (max-width:1150px){
+  .Hero-container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width:1024px){
+  .Header-ul{
+    font-size: 1rem;
+    gap: 1rem;
+  } 
+  .Hero-p{
+    padding: 0;
+  }
+  .About-foto{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content:flex-start;
+    align-items: flex-start;
+  }
+  .About-texto{
+    width: 100%
+  }
+  .About-p{
+    text-align: center;
+  }
+  .About-a{
+    width: 10rem;
+  }
+  .Curriculo-btn{
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .Contact-wrapper{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .Contact-container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 3rem 0 0 0;
+  }
+  .Contact-a{
+    padding:2rem 0;
+  }
+  
+  .Footer-container{
+    display:flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .Footer-p{
+    padding: 0 0 4rem 2rem;
+  }
+  .Footer-a{
+    margin: 0 0 0 2rem;
+  }
+}
+
+
+@media screen and (max-width:960px){
+
+  .Hero-h1{
+    font-size: 10vw;
+  }
+  .Hero-span{
+    padding: 1rem 0;
+    font-size: 5vw;
+  }
+  .Work-contenedor{  
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .Work-ul{
+    margin:0;
+    padding: 0;
+  }
+  .Work-a{
+    margin: 0.5rem 0;
+  }
+  .About-wrapper{
+    max-width: 80%;
+  }
+  .About-texto{
+    padding: 2rem 1.5rem;
+    
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .About-btn{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Experience-ul.isActive{
+    height: 16rem;
+  }
+
+  .About-lists{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .About-tabs.right{
+    padding: 0;
+    width: 100%;
+  }
+
+  .About-tabs.left{
+    width: 100%;
+  }
+  .Language-ul{
+    margin: 0;
+  }
+}
+
+
+@media screen and (max-width:600px){
+
+  .About-nombre{
+    font-size: 2rem;
+  }
+
+  .About-presentacion{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .About-foto{
+    padding: 1rem 0;
+  }
+  
+}
+
+
+
+  
+@media screen and (max-width:480px){
+
+  .Header-svg{/*Para hacer el menu responsive, el svg de hamburguesa cambia de display none a block*/
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .Header-ul{ 
+    display: none;
+  }
+
+  .Header-ul.isActive{/*Para hacer el menu responsive, el nav solo aparece cuando se añade la clase isActive con Javascript*/
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+  
+      gap: 1rem;
+  }
+}
